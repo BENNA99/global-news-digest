@@ -17,7 +17,7 @@ from datetime import datetime, timezone, timedelta
 
 CN = timezone(timedelta(hours=8))
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126.0.0.0"
-HIST_FILE = "/root/.bbc_history.json"
+HIST_FILE = os.environ.get("BBC_HIST_FILE", "/root/.bbc_history.json")
 
 # (源名, 视角, 集团, 官方?, 类型, url, 参数)
 SOURCES = [
@@ -248,7 +248,7 @@ def parse_dt(s):
 
 
 AS_ENDPOINT = "https://api.anysearch.com/mcp"
-AS_KEY_FILE = "/root/.anysearch_key"
+AS_KEY_FILE = os.environ.get("ANYSEARCH_KEY_FILE", "/root/.anysearch_key")
 
 
 def fetch_anysearch(url):
